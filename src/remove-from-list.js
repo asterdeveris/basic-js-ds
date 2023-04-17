@@ -34,20 +34,19 @@ function removeKFromList(l, k) {
   }
 
   curr = head;
-  console.log(curr.value);
 
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i <= length; i++) {
     if (curr.value === k) {
       if (prev === null) {
         l = curr.next;
-      } else if (!curr.next) {
-        prev.next === null;
       } else {
         prev.next = curr.next;
       }
     }
+    if ((prev && prev.next !== curr.next) || prev === null) {
+      prev = curr;
+    }
 
-    prev = curr;
     curr = curr.next;
   }
 
@@ -60,7 +59,7 @@ console.log(
       next: {
         next: {
           next: {
-            next: [null],
+            next: null,
             value: 3,
           },
           value: 3,
